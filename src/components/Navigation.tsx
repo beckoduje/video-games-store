@@ -7,6 +7,7 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
 
 export default function Navigation() {
@@ -24,6 +25,11 @@ export default function Navigation() {
             <IconButton>
               <Badge badgeContent={4} color="error">
                 <FavoriteBorderIcon />
+              </Badge>
+            </IconButton>
+            <IconButton>
+              <Badge badgeContent={2}>
+                <ShoppingCartIcon />
               </Badge>
             </IconButton>
           </Box>
