@@ -2,9 +2,7 @@ import React, { useState } from "react";
 
 import { styled, Box, Button, Typography } from "@mui/material";
 
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-// import ExpandedLinks from "./ExpandedLinks";
 
 const NavigationExpandList = styled("ul")({
   display: "flex",
@@ -34,36 +32,8 @@ const NavButton = styled(Button)({
   },
 });
 
-// const ExpandedLinksBackground = styled(Box)({
-//   padding: "1rem",
-//   paddingTop: "4.8rem",
-//   position: "absolute",
-//   top: 0,
-//   left: 0,
-//   backgroundColor: "red",
-//   height: "0px",
-//   width: "100%",
-//   zIndex: 10,
-//   boxShadow: "0 11px 4px 0 rgba(0, 0, 0, 0.3)",
-//   "&.open": {
-//     height: "200px",
-//   },
-// });
-
 export default function NavigationExpandLinks(props: any) {
   const { expandLinkClickHandler, expLinksNumber } = props;
-  // const [isOpen, setIsOpen] = useState<boolean>(false);
-  // const [expLinksNumber, setExpLinksNumber] = useState<number>(0);
-
-  // const expandLinkClickHandler = (n: number) => {
-  //   if (expLinksNumber !== n) {
-  //     setIsOpen(true);
-  //     setExpLinksNumber(n);
-  //   } else {
-  //     setIsOpen(false);
-  //     setExpLinksNumber(0);
-  //   }
-  // };
 
   return (
     <>
