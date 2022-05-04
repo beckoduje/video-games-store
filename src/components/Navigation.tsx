@@ -36,26 +36,9 @@ export default function Navigation() {
     width: "100vw",
   });
 
-  const ExpandedLinksBackground = styled(Box)({
-    padding: "0rem",
-    // paddingTop: "4.8rem",
-    // position: "absolute",
-    // top: 0,
-    // left: 0,
-    transition: "all 0.2s",
-    backgroundColor: "white",
-    maxHeight: "0px",
-    width: "100%",
-    zIndex: 10,
-    boxShadow: "0 11px 4px 0 rgba(0, 0, 0, 0.3)",
-    // "&.open": {
-    //   height: "200px",
-    // },
-  });
-
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: "white" }}>
-      <Toolbar sx={{ paddingRight: { sm: "15px" }, paddingLeft: { sm: 0 } }}>
+    <AppBar position="fixed" sx={{ backgroundColor: "white", padding: 0 }}>
+      <Toolbar sx={{ paddingRight: { sm: 0 }, paddingLeft: { sm: 0 } }}>
         <Box sx={{ marginRight: "auto", display: "flex" }}>
           <Link
             href="https://www.playstation.com/"
@@ -74,7 +57,7 @@ export default function Navigation() {
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Avatar
               alt="User image"
-              //src="https://sfatulparintilor.ro/wp-content/uploads/2018/01/rase-de-caini-sfatulparintilor.ro-pixabay_com-alaskan-malamute-1531351_1920.jpg"
+              src="https://sfatulparintilor.ro/wp-content/uploads/2018/01/rase-de-caini-sfatulparintilor.ro-pixabay_com-alaskan-malamute-1531351_1920.jpg"
             />
             <IconButton>
               <Badge badgeContent={4} color="error">
@@ -104,14 +87,7 @@ export default function Navigation() {
           <ExpandedLinks isOpen={isOpen} expLinksNumber={expLinksNumber} />
         </Collapse>
       </Box>
-      {/* <ExpandedLinksBackground
-        sx={{
-          maxHeight: () => (isOpen ? "150px" : "0px"),
-        }}
-      >
-        <ExpandedLinks isOpen={isOpen} expLinksNumber={expLinksNumber} />
-      </ExpandedLinksBackground> */}
-      <BottomToolbar>
+      <BottomToolbar sx={{ paddingRight: { sm: 0 }, paddingLeft: { sm: 0 } }}>
         <NavigationBottomLinks />
       </BottomToolbar>
     </AppBar>
