@@ -47,7 +47,7 @@ export default function NavigationBottomLinks() {
     >
       <Box sx={{ position: "absolute", left: "1rem", alignSelf: "center" }}>
         <NavLink
-          to="/home"
+          to="/latest"
           style={{ textDecoration: "none", color: "#1f1f1f" }}
         >
           <Typography component="h6" variant="h6">
@@ -58,7 +58,7 @@ export default function NavigationBottomLinks() {
       <NavigationBottomList>
         <NavigationLinks>
           <CustomNavLink
-            to="/negdi"
+            to="/latest"
             className={(navData) => (navData.isActive ? "active" : "")}
           >
             Latest

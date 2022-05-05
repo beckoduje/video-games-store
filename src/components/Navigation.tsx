@@ -20,6 +20,7 @@ import Collapse from "@mui/material/Collapse";
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [expLinksNumber, setExpLinksNumber] = useState<number>(0);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   const expandLinkClickHandler = (n: number) => {
     if (expLinksNumber !== n) {
@@ -31,14 +32,34 @@ export default function Navigation() {
     }
   };
 
+  const SingInButton = styled(Button)({
+    backgroundColor: "#363636",
+    padding: "1rem",
+    paddingTop: "0.2rem",
+    paddingBottom: "0.2rem",
+    borderRadius: "20px",
+    boxShadow: "none",
+    "&:hover": {
+      backgroundColor: "#606060",
+      boxShadow: "none",
+    },
+  });
+
   const BottomToolbar = styled(Toolbar)({
     minHeight: "unset",
     width: "100vw",
   });
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: "white", padding: 0 }}>
-      <Toolbar sx={{ paddingRight: { sm: 0 }, paddingLeft: { sm: 0 } }}>
+    <AppBar
+      position="fixed"
+      sx={{
+        backgroundColor: "white",
+        padding: 0,
+        boxShadow: "0 8px 16px 0 rgba(0,0,0,0.12)",
+      }}
+    >
+      <Toolbar sx={{ paddingRight: { sm: "10px" }, paddingLeft: { sm: 0 } }}>
         <Box sx={{ marginRight: "auto", display: "flex" }}>
           <Link
             href="https://www.playstation.com/"
@@ -53,24 +74,36 @@ export default function Navigation() {
           />
         </Box>
         <Box sx={{ display: "flex", alignItems: "center", zIndex: 20 }}>
-          <Button variant="contained">Sign In</Button>
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Avatar
-              alt="User image"
-              src="https://sfatulparintilor.ro/wp-content/uploads/2018/01/rase-de-caini-sfatulparintilor.ro-pixabay_com-alaskan-malamute-1531351_1920.jpg"
-            />
-            <IconButton>
-              <Badge badgeContent={4} color="error">
-                <FavoriteBorderIcon />
-              </Badge>
-            </IconButton>
-            <IconButton>
-              <Badge badgeContent={2}>
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
-          </Box>
-          <SearchIcon />
+          {!isLoggedIn && (
+            <SingInButton
+              variant="contained"
+              onClick={() => setIsLoggedIn(true)}
+            >
+              Sign In
+            </SingInButton>
+          )}
+          {isLoggedIn && (
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Avatar
+                sx={{ width: 26, height: 26 }}
+                alt="User image"
+                src="https://sfatulparintilor.ro/wp-content/uploads/2018/01/rase-de-caini-sfatulparintilor.ro-pixabay_com-alaskan-malamute-1531351_1920.jpg"
+              />
+              <IconButton sx={{ marginLeft: "1rem", padding: 0 }}>
+                <Badge badgeContent={4} color="error">
+                  <FavoriteBorderIcon sx={{ color: "#363636" }} />
+                </Badge>
+              </IconButton>
+              <IconButton sx={{ marginLeft: "1rem", padding: 0 }}>
+                <Badge badgeContent={2}>
+                  <ShoppingCartIcon sx={{ color: "#363636" }} />
+                </Badge>
+              </IconButton>
+            </Box>
+          )}
+          <IconButton sx={{ marginLeft: "1rem", padding: 0 }}>
+            <SearchIcon sx={{ color: "#363636" }} />
+          </IconButton>
         </Box>
       </Toolbar>
       <Box sx={{ position: "relative" }}>
@@ -87,7 +120,9 @@ export default function Navigation() {
           <ExpandedLinks isOpen={isOpen} expLinksNumber={expLinksNumber} />
         </Collapse>
       </Box>
-      <BottomToolbar sx={{ paddingRight: { sm: 0 }, paddingLeft: { sm: 0 } }}>
+      <BottomToolbar
+        sx={{ paddingRight: { sm: "10px" }, paddingLeft: { sm: 0 } }}
+      >
         <NavigationBottomLinks />
       </BottomToolbar>
     </AppBar>
